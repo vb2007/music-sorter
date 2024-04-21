@@ -16,6 +16,8 @@ Enter the correct folder path (41th line), and run the script (**DON'T** use pyt
 python main.py
 ```
 
+---
+
 ### Why I made and publicated this?
 
 - Basically I download music a lot with [spotyDL](https://github.com/spotDL/spotify-downloader), so I made a script that organises them, so my media server can find them easily.
