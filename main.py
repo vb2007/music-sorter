@@ -22,7 +22,7 @@ def get_metadata(file_path):
             year_match = re.search(r'\d{4}', date)
             year = year_match.group() if year_match else "Unknown Year"
 
-        print(f"Got metadata for {audio["title"]}.")
+        print(f"\nGot metadata for {audio["title"]}.")
 
         return artist, album, year
     except Exception as e:
@@ -35,6 +35,7 @@ def clean_string(string):
 
 #moves files to folders (&makes folders)
 def organize_music(source_folder):
+    album_folders = {}
     audio_formats = (".mp3", ".wav", ".ogg", ".flac", ".m4a")
 
     for root, dirs, files in os.walk(source_folder):
@@ -52,15 +53,20 @@ def organize_music(source_folder):
 
                     destination_folder = os.path.join(source_folder, f"{artist} - {album} - ({year})") #makes the folder
 
-                    if not os.path.exists(destination_folder):
-                        os.makedirs(destination_folder)
+                    # print(os.path.basename(destination_folder))
+                    # if artist not in os.path.basename(destination_folder):
+                    album_key = (album, year)
+                    if album_key not in album_folders:
+                        album_folders[album_key] = destination_folder
+                        if not os.path.exists(destination_folder):
+                            os.makedirs(destination_folder)
 
                     #moves music to relevant folder(s)
                     try:
-                        shutil.move(file_path, destination_folder)
-                        print(f"Successfully moved {file_path}\nto {destination_folder}.")
+                        shutil.move(file_path, album_folders[album_key])
+                        print(f"Successfully moved {file_path}\nto {album_folders[album_key]}.")
                     except Exception as e:
-                        print(f"Error moving {file_path} to {destination_folder}: {e}.")
+                        print(f"Error moving {file_path} to {album_folders[album_key]}: {e}.")
 
 #folder where the unsorted music is
 main_folder = "C:\\folder\\path\\here"
