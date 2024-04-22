@@ -22,7 +22,7 @@ def get_metadata(file_path):
             year_match = re.search(r'\d{4}', date)
             year = year_match.group() if year_match else "Unknown Year"
 
-        print(f"Got metadata for {audio["title"]}.")
+        print(f"\nGot metadata for {audio["title"]}.")
 
         return artist, album, year
     except Exception as e:
@@ -37,7 +37,7 @@ def clean_string(string):
 def organize_music(source_folder):
     audio_formats = (".mp3", ".wav", ".ogg", ".flac", ".m4a")
 
-    for root, dirs, files in os.walk(source_folder):
+    for root, files in os.walk(source_folder):
         for file in files:
             #searches for .mp3 files
             if any(file.endswith(ext) for ext in audio_formats):
