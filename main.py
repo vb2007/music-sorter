@@ -38,7 +38,7 @@ def organize_music(source_folder):
     album_folders = {}
     audio_formats = (".mp3", ".wav", ".ogg", ".flac", ".m4a")
 
-    for root, files in os.walk(source_folder):
+    for root, dirs, files in os.walk(source_folder):
         for file in files:
             #searches for .mp3 files
             if any(file.endswith(ext) for ext in audio_formats):
