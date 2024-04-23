@@ -68,16 +68,15 @@ def organize_music(source_folder):
                     except Exception as e:
                         print(f"Error moving {file_path} to {album_folders[album_key]}: {e}.")
 
-def welcome_dialouge():
-    print("""------------------------------------
-    Welcome to the Music Organizer!
-    ------------------------------------""")
+if __name__ == "__main__":
+    print("------------------------------------")
+    print("Welcome to the Music Sorter script!")
+    print("------------------------------------")
 
-    print("""
-    Leave the name blank for using current (script's directory) folder.
-    Windows path example: C:\\Users\\User\\Music\\
-    Linux path example: /home/username/music
-    I don't care about Mac users.""")
+    print("Leave the name blank for using current (script's location) folder.")
+    print("Windows path example: C:\\Users\\User\\Music\\")
+    print("Linux path example: /home/username/music")
+    # print("I don't care about Mac users.")
     
     main_folder = str(input("Enter the path to the folder containing the music you want to organize: "))
     if not main_folder:
@@ -85,8 +84,5 @@ def welcome_dialouge():
 
     organize_music(main_folder)
 
-    print("""\n Script is finished.
-    Please report any issues on GitHub: https://github.com/vb2007/music-organiser""")
-
-if __name__ == "__main__":
-    welcome_dialouge()
+    print("\n Script is finished.")
+    print("Please report any issues on GitHub: https://github.com/vb2007/music-sorter")

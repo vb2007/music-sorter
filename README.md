@@ -12,7 +12,7 @@ Install dependencies with **pip**:
 pip install pytest-shutil mutagen
 ```
 
-Enter the correct folder path (41th line), and run the script (**DON'T** use python3):
+Then run the script:
 
 ```shell
 python main.py
