@@ -64,9 +64,9 @@ def organize_music(source_folder):
                     #moves music to relevant folder(s)
                     try:
                         shutil.move(file_path, album_folders[album_key])
-                        print(f"Successfully moved {file_path}\nto {album_folders[album_key]}.")
+                        print(f"Successfully moved {file_path}\nto folder {album_folders[album_key]}.")
                     except Exception as e:
-                        print(f"Error moving {file_path} to {album_folders[album_key]}: {e}.")
+                        print(f"Error moving {file_path}\nto folder {album_folders[album_key]}: {e}")
 
 if __name__ == "__main__":
     print("------------------------------------")
