@@ -22,7 +22,7 @@ def get_metadata(file_path):
             year_match = re.search(r'\d{4}', date)
             year = year_match.group() if year_match else "Unknown Year"
 
-        print(f"\nGot metadata for {audio["title"]}.")
+        print(f"\nGot metadata for {audio['title']}.")
 
         return artist, album, year
     except Exception as e:
@@ -68,7 +68,25 @@ def organize_music(source_folder):
                     except Exception as e:
                         print(f"Error moving {file_path} to {album_folders[album_key]}: {e}.")
 
-#folder where the unsorted music is
-main_folder = "C:\\folder\\path\\here"
+def welcome_dialouge():
+    print("""------------------------------------
+    Welcome to the Music Organizer!
+    ------------------------------------""")
 
-organize_music(main_folder)
+    print("""
+    Leave the name blank for using current (script's directory) folder.
+    Windows path example: C:\\Users\\User\\Music\\
+    Linux path example: /home/username/music
+    I don't care about Mac users.""")
+    
+    main_folder = str(input("Enter the path to the folder containing the music you want to organize: "))
+    if not main_folder:
+        main_folder = os.getcwd()
+
+    organize_music(main_folder)
+
+    print("""\n Script is finished.
+    Please report any issues on GitHub: https://github.com/vb2007/music-organiser""")
+
+if __name__ == "__main__":
+    welcome_dialouge()
