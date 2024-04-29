@@ -1,21 +1,21 @@
 # A simple music sorter made with Python
 
-A scirpt, that runs through a specified folder's songs, then puts them into their album's folders.
+A script, that runs through a specified folder's songs, then puts them into their album's folders.
 
 It's made to be used with [spotyDL](https://github.com/spotDL/spotify-downloader).
 
 ## Usage
 
-Install dependencies with **pip**:
+Install dependencies with `pip`:
 
 ```shell
-pip install pytest-shutil mutagen
+pip install -r requirements.txt
 ```
 
 Then run the script:
 
 ```shell
-python main.py
+python3 main.py
 ```
 
 ---
