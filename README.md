@@ -15,7 +15,7 @@ pip install -r requirements.txt
 Then run the script:
 
 ```shell
-python3 main.py
+python main.py
 ```
 
 ---
