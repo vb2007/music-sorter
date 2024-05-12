@@ -74,11 +74,11 @@ if __name__ == "__main__":
     print("------------------------------------")
 
     print("Leave the name blank for using current (script's location) folder.")
-    print("Windows path example: C:\\Users\\User\\Music\\")
-    print("Linux path example: /home/username/music")
-    # print("I don't care about Mac users.")
+    print("Windows path example: C:/Users/Username/Music")
+    print("Linux / macOS path example: /home/username/music")
     
     main_folder = str(input("Enter the path to the folder containing the music you want to organize: "))
+    main_folder = os.path.normpath(main_folder)
     if not main_folder:
         main_folder = os.getcwd()
 
