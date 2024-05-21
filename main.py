@@ -2,6 +2,10 @@ import os
 import shutil
 import re
 from mutagen.easyid3 import EasyID3
+#for coloring text...
+from colorama import init
+from termcolor import colored
+init()
 
 #gets metadata from music files
 def get_metadata(file_path):
@@ -64,7 +68,7 @@ def organize_music(source_folder):
                     #moves music to relevant folder(s)
                     try:
                         shutil.move(file_path, album_folders[album_key])
-                        print(f"Successfully moved {file_path}\nto folder {album_folders[album_key]}.")
+                        print(colored("Successfully moved ", "green", "on_black") + (f"{file_path}\nto folder {album_folders[album_key]}."))
                     except Exception as e:
                         print(f"Error moving {file_path}\nto folder {album_folders[album_key]}: {e}")
 
@@ -85,4 +89,5 @@ if __name__ == "__main__":
     organize_music(main_folder)
 
     print("\n Script is finished.")
-    print("Please report any issues on GitHub: https://github.com/vb2007/music-sorter")
+    print("Please report any issues on GitHub: https://github.com/vb2007/music-sorter/issues/new")
+    input()
