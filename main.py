@@ -26,11 +26,11 @@ def get_metadata(file_path):
             year_match = re.search(r'\d{4}', date)
             year = year_match.group() if year_match else "Unknown Year"
 
-        print(f"\nGot metadata for {audio['title']}.")
+        print(colored(f"\nGot metadata ", "light_green", "on_black"), f"for {audio['title']}.")
 
         return artist, album, year
     except Exception as e:
-        print(f"Error getting metadata for {file_path}: {e}")
+        print(colored("Error getting metadata", "light_red", "on_black"), f" for {file_path}: {e}")
         return None, None, None
 
 #replaces invalid characters with "_", so Windows accepts the text as a folder name
@@ -88,6 +88,6 @@ if __name__ == "__main__":
 
     organize_music(main_folder)
 
-    print("\n Script is finished.")
+    print(colored("\nScript is finished.", "blue", "on_black"))
     print("Please report any issues on GitHub: https://github.com/vb2007/music-sorter/issues/new")
     input()
