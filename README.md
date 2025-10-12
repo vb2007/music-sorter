@@ -59,7 +59,7 @@ pip install -r requirements.txt
 Running the script:
 
 ```shell
-python3 main.py:
+python3 main.py
 ```
 
 Deactivating the venv (when done):
